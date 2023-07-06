@@ -1,5 +1,6 @@
 function ex1() {
-  // Cach khai bao Object thu 1
+  // Cach khai bao Object thu 1 
+  // object = [{ob1},{ob2}]
   let date = new Date();
   let year = date.getFullYear();
   let students = {
