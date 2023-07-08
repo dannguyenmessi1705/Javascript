@@ -115,6 +115,36 @@ let Join = () => {
 };
 Join();
 
+// *** slice(start), slice(start, end) -> Cat phan tu cua mang tu vi tri con tro la start toi vi tri phan tu end-1 (con tro tai end), co the truyen gia tri am
+// neu chi co 1 tham so, => no se cat chuoi tu vi tri tham so den het chuoi
+// neu chi co 1 tham so, tham so do la am (-), => no se cat tu vi tri str.length - tham so(-) do.
+let Slice = () => {
+  let arr = ["PES", "FIFA", "Vice City", "Dream League Soccer"];
+  let arr2 = arr.slice(1, 2); // ["FIFA"]
+  let arr3 = arr.slice(-3, -1); // ["FIFA", "Vice City"]
+  console.log(arr2 + "\n" + arr3);
+};
+Slice();
+
+// *** Splice(pos) -> Tra ve mang tu vi tri con tro pos den het mang, dong thoi lam thay doi phan tu o mang goc
+// *** Splice(stat, num) -> Tra ve mang tu vi tri con tro start toi num phan tu, dong thoi lam thay doi phan tu o mang goc
+// *** Splice(start, num, value1, value2, ...) -> (Chen) Tra ve mang da bi thay the, dong thoi lam thay doi phan tu o mang goc
+let Splice = () => {
+  let arr = [1, 2, 3, 4, 5];
+  let arr2 = arr.splice(2);
+  console.log("Goc:", arr, "Gia tri da cat", arr2); // Goc: [ 1, 2 ] Gia tri da cat [ 3, 4, 5 ]
+  let arrb = [1, 2, 3, 4, 5];
+  let arr3 = arrb.splice(1, 3);
+  console.log("Goc:", arrb, "Gia tri da cat:", arr3); // Goc: [ 1, 5 ] Gia tri da cat: [ 2, 3, 4 ]
+  let arrc = [1, 2, 3, 4, 5];
+  let arr4 = arrc.splice(2, 0, 10);
+  console.log("Goc:", arrc, "Gia tri da cat:", arr4); // (Chen) Goc: [ 1, 2, 10, 3, 4, 5 ] Gia tri da cat: []
+  let arrd = [1, 2, 3, 4, 5];
+  let arr5 = arrd.splice(3, 5, 8, 9, 7);
+  console.log("Goc:", arrd, "Gia tri da cat:", arr5); // (Thay doi + Chen) Goc: [ 1, 2, 3, 8, 9, 7 ] Gia tri da cat: [ 4, 5 ]
+};
+Splice();
+
 // map(function) -> tra ve 1 mang moi sau khi da thuc hien function
 // function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
 let Map = () => {
