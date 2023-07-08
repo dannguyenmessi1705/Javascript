@@ -1,22 +1,35 @@
 function ex1() {
-  // Cach khai bao Object thu 1 
+  // Cach khai bao Object thu 1
   // object = [{ob1},{ob2}]
   let date = new Date();
   let year = date.getFullYear();
+  // them 1 bien tu ben ngoai
+  let emailObject = "email";
   let students = {
-    name: "Dan",
-    age: year - 2002,
+    name: "Dan", // Properties
+    dob: 2002,
     address: "Hung Yen",
+    [emailObject]: "danprohy@gmail.com", // Bien truyen vao phai de tong dau ngoac vuong => email: "danprohy@gmail.com"
+    getAge: function () {
+      // Method()
+      return year - this.dob;
+    },
   };
+  // Xoa key
+  delete students.email;
   console.log(students);
-  // Cach khai bao Object thu 2
-  function obj(brand, year) {
+  console.log(students.getAge());
+  // Cach khai bao Object thu 2, tao Object Constructor
+  function Obj(brand, year) {
     this.brand = brand;
     this.year = year;
   }
-  let cars = new obj("Honda", 2006);
+  let cars = new Obj("Honda", 2006);
+  let cars2 = new Obj("Suzuki", 2000);
   console.log(cars);
   console.log(`The car ${cars.brand} is ${year - cars.year} years old`);
+  console.log(cars2);
+  console.log(`The car ${cars2.brand} is ${year - cars2.year} years old`);
 }
 ex1();
 
@@ -82,3 +95,21 @@ function ex5() {
   console.log(vl);
 }
 ex5();
+
+// Them thuoc tinh, phuong thuc tu ben ngoai bang prototype, Ap dung cho Object, String, Array
+const ex6 = () => {
+  let day = new Date();
+  const User = function (name, salary, dob) {
+    this.name = name;
+    this.salary = salary;
+    this.dob = dob;
+  };
+  const admin = new User("Admin", 13000, 2000);
+  console.log(admin);
+  // Them phuong thuc, thuoc tinh bang prototype
+  User.prototype.getAge = function () {
+    return day.getFullYear() - this.dob;
+  };
+  console.log(admin.getAge());
+};
+ex6();
