@@ -113,16 +113,17 @@ let run = (str) => {
 console.log(run("the football is the best of sports")); // The Football Is The Best Of Sports
 
 /*
-Bieu thuc chinh quy: Regular Expression (RegExp): la viec khai bao 1 bieu thuc coi nhu la hang so thuan loi cho viec tim kiem
+Bieu thuc chinh quy: Regular Expression (RegExp): la viec khai bao 1 bieu thuc coi nhu la hang so, thuan loi cho viec tim kiem
 su dung cac ham nhu split(), search(), match(), replace()
 
 VD: Khia bao bieu thuc chinh quy phai duoc bao boi 2 ky tu /RegExp/
 let re = /ab*c/ -> bieu thuc co chua 'a' o dau, 'b*' the hien ko co hoac co rat nhieu b o sau va co 'c; o cuoi
     "mabbbbbc" -> true, "abc" -> true, "ab c" -> false
 let re = new RegExp("ab*c")
-
+Cau truc: 
 /Regexp/g -> tim tat ca cac gia tri dung bieu thuc,
 /RegExp/i -> tra ve mot object gia tri duoc tim thay dau tien 
+/RegExp/m -> tim tat ca cac gia tri ke ca khi xuong dong 
 /RegExp/gi -> tim tat ca gia tri in hoa va thuong
 . -> Khop voi bat ky ky tu nao
 ^regex -> Bieu thuc phai khop tai diem bat dau
