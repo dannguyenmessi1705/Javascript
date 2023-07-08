@@ -123,8 +123,9 @@ let re = new RegExp("ab*c")
 Cau truc: 
 /Regexp/g -> tim tat ca cac gia tri dung bieu thuc,
 /RegExp/i -> tra ve mot object gia tri duoc tim thay dau tien 
-/RegExp/m -> tim tat ca cac gia tri ke ca khi xuong dong 
+/RegExp/m -> tim tat ca cac gia tri o dau va cuoi dong (^ and $)
 /RegExp/gi -> tim tat ca gia tri in hoa va thuong
+/RegExp/gi.test(str) -> Kiem tra xem co bieu thuc chinh quy trong str hay khong
 . -> Khop voi bat ky ky tu nao
 ^regex -> Bieu thuc phai khop tai diem bat dau
 regex$ -> Bieu thuc phai khop o cuoi dong
@@ -145,7 +146,8 @@ $ -> Kiem tra ket thuc dong
 + -> Xuat hien 1 hoac nhieu lan {1,}
 ? -> Xuat hien 0 hoac 1 lan {0,1}
 {X} -> Xuat hien X lan
-{X,Y} -> Xuat hien trong khoang X toi Y lan
+{X,Y} -> Xuat hien tu X den Y lan
+{X,} -> Xuat hien X lan hoac nhieu hon
 *? -> Tim kiem khop nho nhat
 */
 
