@@ -1,4 +1,4 @@
-// Tạo ham mySome co chuc nang giong y nhu ham some()
+// Tạo ắn ham mySome co chuc nang giong y nhu ham some()
 Array.prototype.mySome = function (callback) {
   for (let i in this) {
     if (this.hasOwnProperty(i)) {
