@@ -145,7 +145,7 @@ let Splice = () => {
 };
 Splice();
 
-// map(function) -> tra ve 1 mang moi sau khi da thuc hien function
+// map(function) -> tra ve 1 mang moi sau khi da thuc hien function (xu ly mang)
 // function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
 let Map = () => {
   let arr = [1, 2, 3, 4];
@@ -156,6 +156,20 @@ let Map = () => {
   console.log(output);
 };
 Map(); // [ 2, 4, undefined, undefined ] (cac gia tri con lai ko thoa man dieu kien se tro thanh undifined)
+
+// reduce(function, initialValue) -> tra ve 1 gia tri sau khi thuc hien fuction; initialValue co the la kieu so, array, string,...
+// function(accumulator, currentElement, indexElement(optional), originArray(optional))
+// accumulator: bien luu tru, su dung de tra ve ket qua cho ham; currentElement: gia tri hien tai trong mang; indexElement: chi so hien tai trong mang; originArray: ->  mang ban dau
+// ban dau accumulation === initialValue, neu khong truyen tham so initialValue, tu dong accumulation === element[0] cua array, luc do currentElement === element[1]
+let Reduce = () => {
+  let arr = [1, 2, 3, 4, 5];
+  const Sum = (sum, element, index, arr) => {
+    return (sum += element);
+  };
+  let sum = arr.reduce(Sum, 0);
+  console.log(sum); // 0+1+2+3+4+5 = 15
+};
+Reduce();
 
 /* shift() -> tra ve gia tri dau tien cua mang, dong thoi thay doi mang sau khi bi xoa gia tri dau
   unshift(element1, ....) -> tra ve chieu dai cua mang sau khi them cac element vao dau mang, dong thoi thay doi mang sau khi them gia tri
@@ -232,3 +246,10 @@ let Sort = () => {
   console.log(person);
 };
 Sort();
+
+/*
+Tat ca ham every(), some(), forEach(), filter(), find(), map(), reduce(),.. lien quan den tim xu ly cac han tu trong mang
+thuc ra hoat dong nhu 1 vong for, lap qua tat ca cac phan tu trong mang
+sau do moi lan lap, no se thuc hien 1 ham duoc truyen vao trong no
+hoat dong nhu cac khoi thuoc 1 block for
+*/

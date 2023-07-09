@@ -1,5 +1,5 @@
 const prompt = require("prompt-sync")();
-// for-in in object (Chay lan luot ca thuoc tinh (var) va gia tri cua thuoc tinh obj[var])
+// for-in in object (Chay lan luot ca thuoc tinh (key) va gia tri cua thuoc tinh obj[key]), duyet cac doi tuong trong chuoi object
 function ex1() {
   let person = {
     name: "Dan",
@@ -21,7 +21,7 @@ function ex1() {
 }
 ex1();
 
-// for-of (chay cac gia tri trong vong lap string, array, object)
+// for-of (chay cac gia tri(value) trong vong lap string, array, object)
 function ex2() {
   let animal = new Set(["Dog", "Cat", "Duck"]);
   animal["Change"] = "Monkey";
@@ -48,4 +48,4 @@ function ex4(str) {
 ex3("DanNguyen");
 const str = prompt();
 ex4(str);
-process.stdi
+process.stdi;
