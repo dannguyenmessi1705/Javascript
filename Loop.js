@@ -1,5 +1,5 @@
 const prompt = require("prompt-sync")();
-// for-in in object (Chay lan luot ca thuoc tinh (key) va gia tri cua thuoc tinh obj[key]), duyet cac doi tuong trong chuoi object
+// for-in in object (Chạy lần lượt tất cả các thuộc tính (key), value = obj[key]), duyệt các đối tượng trong mảng object
 function ex1() {
   let person = {
     name: "Dan",
@@ -12,7 +12,7 @@ function ex1() {
     console.log(`${x} is ${person[x]}`);
   }
 
-  // Chi in ra thuoc tinh, muon in ra gia tri thi dung nhu mang
+  // Chỉ in ra thuộc tính, muốn in ra giá trị thì dùng như mảng obj[key]
   let animal = new Set(["Dog", "Cat", "Duck"]);
   animal["Change"] = "Monkey";
   for (let x in animal) {
@@ -21,7 +21,7 @@ function ex1() {
 }
 ex1();
 
-// for-of (chay cac gia tri(value) trong vong lap string, array, object)
+// for-of (chạy lần lượt tất cả các giá trị (value) của string, array, object)
 function ex2() {
   let animal = new Set(["Dog", "Cat", "Duck"]);
   animal["Change"] = "Monkey";

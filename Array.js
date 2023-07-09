@@ -1,13 +1,13 @@
-// concat(Array) -> noi 2 mang voi nhau. \
-// VD, noi mang b vao sau mang a
+// concat(Array) -> nối 2 mảng với nhau
+// VD, nối mảng b vào mảng a
 let Concat = (a, b) => {
   newArray = a.concat(b);
   console.log(newArray);
 };
 Concat([1, 2, 3], ["A", "B", "C"]); // [ 1, 2, 3, 'A', 'B', 'C' ]
 
-// every(function) -> Kiem tra dieu kien cac phan tu trong mang, -> true: neu tat ca menh de dung, fasle: neu 1 trong cac menh de sai
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// every(function) -> Kiểm tra điều kiện các phần tử trong mảng, -> true: nếu tất cả phần tư thoã mãn điều kiện, fasle: nếu 1 trong các phần tử không thoả mãn điều kiện
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
 let Every = () => {
   arr = [1, 8, 9, 13, 17, 22];
   let con = (element) => {
@@ -22,8 +22,9 @@ let Every = () => {
 };
 Every(); // Dieu kien sai
 
-// some(function) -> Tuong tu nhu every, tuy nhien chi can 1 menh de dung -> true, tat ca menh de sai -> false
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// some(function) -> Tương tự như every, tuy nhiên chỉ cần 1 phần tử thoả mãn điều kiện -> true, tất cả phần tư không thoả mãn -> false
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
+
 let Some = () => {
   arr = [1, 2, 3, 4, 5];
   let con = (element) => {
@@ -34,8 +35,8 @@ let Some = () => {
 };
 Some(); // Dieu kien dung
 
-// filter(functiom) -> Tra ve 1 mang co cac gia tri thoa man dieu kien loc
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// filter(functiom) ->  trả về 1 magr có các phần tử thoa mãn điều kiện
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
 let Filter = () => {
   arr = [-3, -2, 1, 2, 3];
   let con = (element) => {
@@ -46,9 +47,9 @@ let Filter = () => {
 };
 Filter(); // [ 1, 2, 3 ]
 
-// find(function) -> tra ve gia tri dau tien duoc tim thay trong mang, neu khong tim thay tra ve undifined
-// findIndex(function) -> tra ve chi so dau tien duoc tim thay trong mang, neu khong tim duoc tra ve -1
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// find(function) -> trả về phần tử đầu tiên thoả mãn điều kiện trong mảng, trả về 'undifined' nếu không tìm thấy
+// findIndex(function) -> trả về chỉ số của phần tử đầu tiên thoả mãn điều kiện trong mảng, -> -1 nếu không tìm thấy
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
 let Find = () => {
   let arr = [-2, -1, 0, 1, 2];
   let con = (element) => {
@@ -61,8 +62,8 @@ let Find = () => {
 };
 Find(); // 0 2
 
-// forEach(function) -> liet ke tat ca cac gia tri (thoa man dieu kien) trong mang
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// forEach(function) -> duyệt qua tất cả các giá trị trong mảng, có thể có hoặc không cần trả về 1 giá trị
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
 let ForEach = () => {
   let arr1 = [1, 2, 3, 4, 5];
   let con1 = (element) => {
@@ -80,23 +81,24 @@ let ForEach = () => {
 };
 ForEach();
 
-// includes( (value1,...), startIndex) -> kiem tra value co trong mang hay khong bat dau tim kiem tu gia tri startIndex
-// startIndex mang dau (+), neu la (-) thi chi so trong mang = arr.length + startIndex
+// includes( (value1,...), startIndex) -> kiểm tra các giá trị nhập vào có trong mảng hay không
+// startIndex: Mảng bắt đầu tìm kiếm từ chỉ số startIndex trở đi
+// startIndex mang dấu dương (+), nếu là âm (-) thì chỉ số = arr.length + startIndex
 let Includes = () => {
   let arr1 = [1, 2, 3, 4, 5];
   let arr2 = ["Dog", "Cat", "Duck", "Bird"];
   let check1 = arr1.includes(2); // true
-  let check2 = arr1.includes(2, 3); // fasle (do bat dau tim tu vi tri thu 3)
-  let check3 = arr1.includes(2, -1); // fasle (do bat dau tim tu vi tri thu 4 = (arr.length (5) + (-1)) )
+  let check2 = arr1.includes(2, 3); // fasle (do bắt đầu tìm từ vị trí thứ 3)
+  let check3 = arr1.includes(2, -1); // fasle (do bắt đầu tìm từ vị trí thứ 4 = (arr.length (5) + (-1)) )
   let check4 = arr1.includes((1, 5), 0); //true
   let check5 = arr2.includes("Dog", "Cat"); // true
   console.log(check1, check2, check3, check4, check5);
 };
 Includes();
 
-// indexOf(value, startIndex) -> tra ve chi so (index) dau tien ma gia tri duoc tim thay, neu khong tim duoc -> -1
-// lastIndexOf(value, startIndex ) -> tra ve chi so (index) cuoi cung ma gia tri duoc tim thay, neu khong tim duoc -> -1
-// startIndex mang dau (+), neu la (-) thi chi so trong mang = arr.length + startIndex
+// indexOf(value, startIndex) -> trả về chỉ số của phần tử đầu tiên thoả mãn điều kiện trong mảng, -> -1 nếu không tìm thấy
+// lastIndexOf(value, startIndex ) -> trả về chỉ số của phần tử cuối cùng thoả mãn điều kiện trong mảng, -> -1 nếu không tìm thấy
+// startIndex mang dấu dương (+), nếu là âm (-) thì chỉ số = arr.length + startIndex
 let Index = () => {
   let arr1 = [1, 1, 2, 2, 3, 3, 4, 4];
   let pos1 = arr1.indexOf(1); // 0
@@ -107,7 +109,7 @@ let Index = () => {
 };
 Index();
 
-// join('argurment') -> (String) Noi tat ca cac phan tu cua mang thanh 1 chuoi ngan cach boi dau duoc dua vao lam doi so
+// join('argurment') -> (String) Nối tất cả các phần tử cua mảng thành 1 chuỗi ngắn cách bới ký tự agurment được đưa vào làm đối số
 let Join = () => {
   let arr = [1, 2, 3, 4, 5];
   let str = arr.join("->"); // 1->2->3->4->5
@@ -115,9 +117,9 @@ let Join = () => {
 };
 Join();
 
-// *** slice(start), slice(start, end) -> Cat phan tu cua mang tu vi tri con tro la start toi vi tri phan tu end-1 (con tro tai end), co the truyen gia tri am
-// neu chi co 1 tham so, => no se cat chuoi tu vi tri tham so den het chuoi
-// neu chi co 1 tham so, tham so do la am (-), => no se cat tu vi tri str.length - tham so(-) do.
+// *** slice(start), slice(start, end) -> Cắt phần tử của mảng từ vị trí con trỏ thứ start vị trí con trỏ thứ end (phần tử thứ end-1), có thể truyền đối số âm (-)
+// nếu chi có 1 tham số, => nó sẽ cắt chuỗi từ vị trí truyền vào đến hết chuỗi
+// nếu chi có 1 tham số, tham số đó là âm (-), => nó sẽ cắt từ vị trí str.length - đối số âm (-) truyền vào.
 let Slice = () => {
   let arr = ["PES", "FIFA", "Vice City", "Dream League Soccer"];
   let arr2 = arr.slice(1, 2); // ["FIFA"]
@@ -126,9 +128,9 @@ let Slice = () => {
 };
 Slice();
 
-// *** Splice(pos) -> Tra ve mang tu vi tri con tro pos den het mang, dong thoi lam thay doi phan tu o mang goc
-// *** Splice(stat, num) -> Tra ve mang tu vi tri con tro start toi num phan tu, dong thoi lam thay doi phan tu o mang goc
-// *** Splice(start, num, value1, value2, ...) -> (Chen) Tra ve mang da bi thay the, dong thoi lam thay doi phan tu o mang goc
+// *** Splice(pos) -> Trả về mảng từ vị trí con trỏ thứ pos đến hết mảng gốc, đồng thời làm thay đổi (xoá) phần tử của mảng gốc
+// *** Splice(stat, num) -> Trả về mảng từ vị trí con trỏ thứ start có độ dài num phần tử của mảng gốc, đồng thời làm thay đổi (xoá) phần tử của mảng gốc
+// *** Splice(start, num, value1, value2, ...) -> (Chèn) Trả về 1 mảng bị thay thế, đồng thời làm thay đổi (chèn) phần tử vào mảng gốc
 let Splice = () => {
   let arr = [1, 2, 3, 4, 5];
   let arr2 = arr.splice(2);
@@ -145,8 +147,8 @@ let Splice = () => {
 };
 Splice();
 
-// map(function) -> tra ve 1 mang moi sau khi da thuc hien function (xu ly mang)
-// function(element, index(optional), array(optional){...code...}, that(optinal)) element = gia tri, index bat dau tu 0, array dai dien ten mang, that = gia tri gan thay cho this ben trong ham callback
+// map(function) -> Hàm xử lý mảng theo yêu cầu tuỳ thuộc vào fuction tự định nghĩa chức năng của map
+// function(element, index(optional), array(optional){...code...}, thisAgr(optinal)) element = giá trị, index: chỉ số(bắt đầu từ 0), array: trả về array gốc, thisAgr = giá trị gán thay cho khoá 'this' bên trong hàm callback
 let Map = () => {
   let arr = [1, 2, 3, 4];
   let func = (element, index, arr) => {
@@ -155,12 +157,15 @@ let Map = () => {
   let output = arr.map(func);
   console.log(output);
 };
-Map(); // [ 2, 4, undefined, undefined ] (cac gia tri con lai ko thoa man dieu kien se tro thanh undifined)
+Map(); // [ 2, 4, undefined, undefined ] (các giá trị còn lại ko thoả mãn điều kiện -> undifined)
 
-// reduce(function, initialValue) -> tra ve 1 gia tri sau khi thuc hien fuction; initialValue co the la kieu so, array, string,...
+// reduce(function, initialValue(optional)) -> trả về 1 gia trị sau khi thực hiện fuction; initialValue giá trị khởi tạo, có thể là kiểu Number, array, string,...
 // function(accumulator, currentElement, indexElement(optional), originArray(optional))
-// accumulator: bien luu tru, su dung de tra ve ket qua cho ham; currentElement: gia tri hien tai trong mang; indexElement: chi so hien tai trong mang; originArray: ->  mang ban dau
-// ban dau accumulation === initialValue, neu khong truyen tham so initialValue, tu dong accumulation === element[0] cua array, luc do currentElement === element[1]
+// accumulator: Biến lưu trữ, sử dụng để trả về kết quả cho hàm;
+// currentElement: Giá trị của phần tử hiện tại trong mảng;
+// indexElement: Chỉ số của phần tử hiện tại trong mảng;
+// originArray: ->  Mảng gốc ban đầu
+// Ban đầu accumulation === initialValue, nếu ko truyền đối số initialValue, tự động accumulation === element[0] của array, lúc đó currentElement === element[1]
 let Reduce = () => {
   let arr = [1, 2, 3, 4, 5];
   const Sum = (sum, element, index, arr) => {
@@ -171,11 +176,11 @@ let Reduce = () => {
 };
 Reduce();
 
-/* shift() -> tra ve gia tri dau tien cua mang, dong thoi thay doi mang sau khi bi xoa gia tri dau
-  unshift(element1, ....) -> tra ve chieu dai cua mang sau khi them cac element vao dau mang, dong thoi thay doi mang sau khi them gia tri
-  pop() -> tra ve gia tri cuoi cung cua mang, dong thoi thay doi mang sau khi xoa gia tri cuoi
-  push(element1, ...) -> tra ve chieu dai cua mang sau khi them cac element vao cuoi mang, dong thoi thay doi mang sau khi them gia tri
-  reverse() -> tra ve dao nguoc cua 1 mang, dong thoi cung dao nguoc mang goc
+/* shift() -> trả về giá trị đầu tiên của mảng, đồng thời xoá giá trị đầu tiên của mảng gốc
+  unshift(element1, ....) -> trả về chiều dài của mảng sau khi thêm các giá trị vào đầu mảng, đồng thời mảng gốc thay đổi
+  pop() -> trả về giá trị cuối cùng của mảng, đồng thời xoá giá trị cuối cùng của mảng gốc
+  push(element1, ...) -> trả về chiều dài của mảng sau khi thêm các giá trị vào cuối mảng, đồng thời mảng gốc thay đổi
+  reverse() -> đảo ngược mảng gốc
   */
 let Change = () => {
   let arr = [4, 5, 6]; // length = 3
@@ -192,14 +197,14 @@ let Change = () => {
 };
 Change();
 
-/* sort(function) -> tra ve ham da duoc sap xep theo chieu nho -> lon, mac dinh khong truyen function vao, 
-  phan tu mang se chuyen ve string roi so sanh. VD(Banana > Coconut), (1 > 20)
-  De so sanh so, tranh truong hop (1 > 20), ta phai viet them function
-  ** function(a, b) -> return a-b (sap xep tang(Number)) 
-  ** function(a, b) -> return b-a (sap xep giam(Number)) hoac return (+) (lay chi so b lam goc (=0), dat chi so cua a ra sau b)
-  ** function(a, b) -> return 0  (giu nguyen vi tri cua a va b)
-  ** function(a, b) -> return -1 (Chi so b lam goc (=0), dat chi so cua a len truoc b)
-  ** function(a, b) -> return 1 (Chi so b lam goc (=0), dat chi so cua a ra sau b)
+/* sort(function) -> mặc định không truyền function vào, trả về array đã được sắp xếp theo chiều tăng dần theo (Unicode) 
+  phần tử của mảng sẽ chuyển về String rồi so sánh. VD(Banana > Coconut), (1 > 20)
+  Để so sánh số, tránh TH (1 > 20), ta phải viết thêm function truyền vào
+  ** function(a, b) -> return a-b (sắp xếp tắngg(Number)) 
+  ** function(a, b) -> return b-a (sắp xếp giảm(Number))
+  ** function(a, b) -> return 0  (giữ nguyên vị trí của a và b)
+  ** function(a, b) -> return -1 (Lấy chỉ số b làm gốc (=0), vì return (-) => đặt a lên trước b)
+  ** function(a, b) -> return 1 (Lấy chỉ số b làm gốc (=0), vì return (+) => đặt a ra sau b)
 */
 let Sort = () => {
   let person = [
@@ -234,12 +239,12 @@ let Sort = () => {
   console.log(person); // (40, 22, 20, 18)
   // Ham xep theo ten tang dan
   let sortnName = (a, b) => {
-    nameA = a.name.toUpperCase(); //Chuyen ve cung 1 chu Hoa
-    nameB = b.name.toUpperCase(); //Chuyen ve cung 1 chu Hoa
+    nameA = a.name.toUpperCase(); //Chuyển về cùng kiểu chữ hoa để so sánh
+    nameB = b.name.toUpperCase(); //Chuyển về cùng kiểu chữ hoa để so sánh
     if (nameA > nameB)
-      return 1; // lay chi so nameB lam goc (=0). Thuc hien chuyen chi so cua nameA ra sau nameB (>0)
+      return 1; // lấy chỉ sô nameB làm gốc (=0). Thực hiện đổi phần tử nameA ra sau nameB (>0)
     else if (nameA < nameB)
-      return -1; // lay chi so nameB lam goc (=0). Thuc hien chuyen chi so cua nameA len truoc nameB (<0)
+      return -1; // lay chi so nameB làm gốc (=0). Thực hiện đổi phần tử nameA lên trước nameB (<0)
     else return 0; // Khong thuc hien sap xep
   };
   person.sort(sortnName);
@@ -248,8 +253,7 @@ let Sort = () => {
 Sort();
 
 /*
-Tat ca ham every(), some(), forEach(), filter(), find(), map(), reduce(),.. lien quan den tim xu ly cac han tu trong mang
-thuc ra hoat dong nhu 1 vong for, lap qua tat ca cac phan tu trong mang
-sau do moi lan lap, no se thuc hien 1 ham duoc truyen vao trong no
-hoat dong nhu cac khoi thuoc 1 block for
+Tất cả hàm every(), some(), forEach(), filter(), find(), map(), reduce(),.. liên quan đến việc tìm và xử lý mảng thực ra
+hoạt động như 1 vòng lặp for, nó lặp qua tất cả các phần tử của mảng
+sau mỗi lần lặp, nó sẽ thục hiên 1 hàm callback được truyềb vào nó các callback này hoạt động giống như việc chạy code trong 1 khối block for
 */

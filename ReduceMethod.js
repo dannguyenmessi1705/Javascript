@@ -1,5 +1,5 @@
 /*
-Tinh IMDBRating nhung bo phim cua dao dien "Christopher Nolan"
+Tính IMDBRating những bộ phim của đạo diễn "Christopher Nolan"
 */
 var watchList = [
     {

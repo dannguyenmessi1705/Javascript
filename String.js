@@ -1,11 +1,11 @@
-// Xu ly string trong JS nhu xu ly 1 object, vi String co cac thuoc tinh nhu (length, prototype)
-// length -> tra ve do dai cua chuoi
-// Object.propotype.name -> Them thuoc tinh hay phuong thuc
+// xử lý string trong JS như xử lý 1 object, vì String có các thuộc tính như (length, prototype)
+// length -> trả về do dai của chuỗi
+// Object.propotype.name -> Thêm thuộc tính hay phương thức
 let ex1 = () => {
   let a = "Java";
   console.log(a.length); // 4
   String.prototype.add_last = function (char) {
-    // Khong duoc dung arrow function voi prototype, this,...
+    // Ko được dùng arrow function với hàm có prototype, this,...
     return this + char;
   };
   String.prototype.check_length = function () {
@@ -21,90 +21,90 @@ ex1();
 let ex2 = () => {
   let a = "dannguyen",
     b = "DANNGUYEN";
-  // *** concat() -> noi 2 chuoi
+  // *** concat() -> nối 2 chuỗi
   a = a.concat(b);
   console.log(a); // dannguyenDANNGUYEN
 
-  // *** charAt() -> tra ve gia tri cua phan tu tai chi so dua vao, charCodeAt() -> tra ve gia tri thuoc bang Unicode
+  // *** charAt() -> trả về giá trị của phần tử tại chỉ số đưa vao, charCodeAt() -> trả về giá trị thuộc bảng Unicode
   console.log(a.charAt(2)); // n
   console.log(a.charCodeAt(2)); // 110
 
-  // *** indexOf(value, startIndex) -> tra ve vi tri dau tien cua chuoi can tim, lastIndexOf(value, startIndex) -> tra ve vi tri cuoi cung cua chuoi can tim, neu khong tum thay -> -1
+  // *** indexOf(value, startIndex) -> trả về vị trí đầu tiên của chuỗi cần tìm, lastIndexOf(value, startIndex) -> trả về vị trí cuối cùng của chuỗi cần tìm, nếu không tìm thấy -> -1
   let i1 = a.indexOf("an");
-  console.log(i1); // 1 (do bat dau tim thay chu 'a' o vi tri thu 1)
+  console.log(i1); // 1 (do bắt đầu tìm thấy chữ 'a' ở vị trí thứ 1)
   let i2 = a.lastIndexOf("n");
   console.log(i2); // 8
 
-  // *** search(RegExp) -> tra ve vi tri dau tien tim kiem duoc, neu khong -> -1
+  // *** search(RegExp) -> trả về vị trí đầu tiên tìm kiếm được, nếu không -> -1
   console.log(a.search("nn")); //2
 
-  // *** match(RegExp) -> tra ve mang cac gia tri tim kiem duoc (/Regexp/g), tra ve mot object gia tri duoc tim thay dau tien trong mang(/RegExp/i), tra ve ca gia tri in hoa va thuong (/RegExp/gi), neu khong -> null
+  // *** match(RegExp) -> trả về mảng các giá trị tìm kiếm được (/Regexp/g), trả về một object giá trị được tìm thay đầu tiên trong mảng(/RegExp/i), trả về các giá trị in hoa va thường (/RegExp/gi), nếu không -> null
   console.log(a.match(/n/gi)); // [ 'n', 'n', 'n', 'N', 'N', 'N' ]
 
-  // *** repalce(RegExp) -> thay the tat ca chuoi nhat dinh (bieu thuc chinh quy) bang 1 chuoi moi
+  // *** repalce(RegExp) -> thay thế tất ca chuỗi nhất định (biểu thức chính quy) bằng 1 chuỗi mới
   let r1 = a.replace(/dan/gi, "Dan");
   console.log(r1); // DannguyenDanNGUYEN
 
-  // *** substring(start, end) -> cat 1 chuoi bat dau tu vi tri start den vi tri (end-1)
+  // *** substring(start, end) -> cắt 1 chuỗi bắt đầu từu vị trí start đến vị trí (end-1)
   let s1 = a.substring(1, 3); // an
   console.log(s1);
 
-  // *** substr(start, num) -> cat 1 chuoi bat dau tu vi tri start cho den khi chieu dai chuoi = num
+  // *** substr(start, num) -> cắt 1 chuỗi bắt đầu từ vị trí start cho đến khi chieu dai chuỗi = num
   let s2 = a.substr(3, 5); // nguye
   console.log(s2);
 
-  // *** slice(start), slice(start, end) -> giong nhu substring, tuy nhien co the truyen gia tri am
-  // neu chi co 1 tham so, => no se cat chuoi tu vi tri tham so den het chuoi
-  // neu chi co 1 tham so, tham so do la am (-), => no se cat tu vi tri str.length - tham so(-) do.
+  // *** slice(start), slice(start, end) -> giống như substring, tuu nhiên có thể truyền giá trị âm
+  // nếu chỉ có 1 tham số, => nó sẽ cắt chuỗi từ vị trí tham số đến hết chuỗi
+  // nếu chỉ có 1 tham số, tham số đó là âm (-), => nó sẽ căt từ vị trí str.length - tham so(-) đó.
   let sl1 = a.slice(3); // nguyenDANNGUYEN
   let sl2 = a.slice(3, 6); // ngu
   let sl3 = a.slice(-5); // GUYEN
   console.log(sl1, sl2, sl3);
 
-  // *** toLowerCase() -> tra ve chu thuong, toUpperCase() -> tra ve chu hoa
-  // *** toLocaleLowerCase() -> tra ve chu thuong dua tren ngon ngu may chu
-  // *** toLocaleUpperCase() -> tra ve chu hoa dua tren ngon ngu may chu
+  // *** toLowerCase() -> trả về chữ thường, toUpperCase() -> trả về chữ hoa
+  // *** toLocaleLowerCase() -> trả về chữ thường dựa trên ngôn ngữ máy chủ
+  // *** toLocaleUpperCase() -> trả về chữ hoa dựa trên ngôn ngữ máy chủ
   let lo1 = a.toLocaleLowerCase(); // dannguyendannguyen
   let lo2 = a.toUpperCase(); // DANNGUYENDANNGUYEN
   console.log(lo1, lo2);
 
-  // *** toString() -> chuyen, ep kieu du lieu ve string
+  // *** toString() -> chuyển, ép kiểu dữ liệu về string
   let ts1 = 1,
     ts2 = 2;
   console.log(ts1.toString() + ts2.toString()); // 12
 
-  // *** split(separator) -> tach chuoi thanh cac mang chuoi voi dau ngan cach la separator
+  // *** split(separator) -> tách chuỗi thành các mảng chuỗi với dấu ngăn cách là separator
   let sp = "DA_01_LE_23";
   let sp1 = sp.split("_"); // ["DA", "01", "LE", "23"]
   console.log(sp1);
 
-  // *** includes(string) -> true (string duoc tim thay trong chuoi), nguoc lai -> false
+  // *** includes(string) -> true (string được tìm thấy trong chuỗi), ngược lại -> false
   let inc = a.includes("nguyenD");
   console.log(inc); // true
 
-  // *** trim() -> tra ve chuoi sau khi da xoa bo (space, tab, breakline, ky tu ket thuc dong) o 2 dau chuoi
-  // *** trimStart() / trimLeft() -> tra ve chuoi sau khi da xoa bo (space, tab,...) o dau chuoi
-  // *** trimEnd() / trimRight() -> tra ve chuoi sau khi da xoa bo (space, tab,...) o cuoi chuoi
+  // *** trim() -> trả về chuỗi sau khi đã xoá bỏ (space, tab, breakline, Ký tự kết thúc dong) ở 2 đầu chuỗi
+  // *** trimStart() / trimLeft() -> trả về chuỗi sau khi da xoá bỏ (space, tab,...) ở đầu chuỗi
+  // *** trimEnd() / trimRight() -> trả về chuỗi sau khi da xoá bỏ (space, tab,...) ở cuối chuỗi
   let tr = "   ABC   ";
   console.log(tr.trim()); // "ABC"
   console.log(tr.trimStart()); // "ABC   "
   console.log(tr.trimRight()); // "   ABC"
 
-  // *** valueOf() -> cung cap gia tri nguyen thuy cua doi tuong chuoi
+  // *** valueOf() -> cung cấp giá trị nguyên thủy của chuỗi
   let obj = a.valueOf();
   console.log(obj); // dannguyenDANNGUYEN
 };
 ex2();
 
-// VD chuyen "the football is the best of sports" thanh viet hoa cac chu cai dau
-// Ham viet hoa chu cai dau
+// VD chuyển "the football is the best of sports" thành viết hoa các chữ cái đầu
+// Hàm viết hoa chữ cái đầu
 let upperF = (word) => {
   let first_letter = word.charAt(0);
   let rest = word.slice(1);
   first_letter = first_letter.toUpperCase();
   return first_letter.concat(rest);
 };
-// Ham tach chuoi thanh mang va ghep lai
+// Hàm tách chuỗi thành mảng và ghép lại
 let run = (str) => {
   let arr = str.split(" ");
   let exe = arr.map(upperF);
@@ -113,45 +113,45 @@ let run = (str) => {
 console.log(run("the football is the best of sports")); // The Football Is The Best Of Sports
 
 /*
-Bieu thuc chinh quy: Regular Expression (RegExp): la viec khai bao 1 bieu thuc coi nhu la hang so, thuan loi cho viec tim kiem
-su dung cac ham nhu split(), search(), match(), replace()
+biểu thức chính quy: Regular Expression (RegExp): là viêcc khai báo 1 biểu thứcc coi như là hằng số, thuận lợi cho việc tìm kiếm
+sử dụng các hàm như split(), search(), match(), replace()
 
-VD: Khia bao bieu thuc chinh quy phai duoc bao boi 2 ky tu /RegExp/
-let re = /ab*c/ -> bieu thuc co chua 'a' o dau, 'b*' the hien ko co hoac co rat nhieu b o sau va co 'c; o cuoi
+VD: Khai báo biểu thức chính quy phải được bao bởi 2 ký tự //, vd /RegExp/
+let re = /ab*c/ -> biểu thức có chứa 'a' ở đầu, 'b*' thể hiện ko có hoặc có rất nhiều b ở sau và có 'c; ở cuối
     "mabbbbbc" -> true, "abc" -> true, "ab c" -> false
 let re = new RegExp("ab*c")
-Cau truc: 
-/Regexp/g -> tim tat ca cac gia tri dung bieu thuc,
-/RegExp/i -> tra ve mot object gia tri duoc tim thay dau tien 
-/RegExp/m -> tim tat ca cac gia tri o dau va cuoi dong (^ and $)
-/RegExp/gi -> tim tat ca gia tri in hoa va thuong
-/RegExp/gi.test(str) -> Kiem tra xem co bieu thuc chinh quy trong str hay khong
-. -> Khop voi bat ky ky tu nao
-^regex -> Bieu thuc phai khop tai diem bat dau
-regex$ -> Bieu thuc phai khop o cuoi dong
-[abc] -> Co the khop voi a hoac b hoac c
-[abc][vz] -> Co the khop voi a hoac b hoac c theo sau la v hoac z
-[a-d1-7] -> Mot chuoi giua a va d, va 1 den 7
-X|Z -> Tim X hoac Z
-XZ -> Tim X theo sau la Z
-$ -> Kiem tra ket thuc dong
-\d -> so bat ky [0-9]
-\D -> Ky tu khong phai la so [^0-9]
-\s -> Ky tu khoang trang
-\S -> Ky tu khong phai la khoang trang
-\w -> Ky tu chu (a->z, A->Z, 0->9, _)
-\W -> Ky tu khong phai la chu
-\b -> Ky tu thuoc a-z hoac A-Z, hoac 0-9 hoac _
-* -> Xuat hien 0 hoac nhieu lan {0,}
-+ -> Xuat hien 1 hoac nhieu lan {1,}
-? -> Xuat hien 0 hoac 1 lan {0,1}
-{X} -> Xuat hien X lan
-{X,Y} -> Xuat hien tu X den Y lan
-{X,} -> Xuat hien X lan hoac nhieu hon
-*? -> Tim kiem khop nho nhat
+Cấu trúc: 
+/Regexp/g -> tìm tất cả các giá trị dùng biểu thức,
+/RegExp/i -> trả về một object giá trị được tìm thấy đầu tiên 
+/RegExp/m -> tìm tất cả các giá trị ở đầu va cuối dòng (^ and $)
+/RegExp/gi -> tìm tất cả giá trị in hoa và thường
+/RegExp/gi.test(str) -> kiếm tra xem có biểu thức chính quy trong str hay ko
+. -> Khớp với bất kỳ ký từ nào
+^regex -> biểu thức phải khớp tại điểm bắt đầu
+regex$ -> biểu thức phải khớp ở cuối dong
+[abc] -> Có thể khớp với a hoặc b hoặc c
+[abc][vz] -> Có thể khớp với a hoặc b hoặc c theo sau là v hoặc z
+[a-d1-7] -> một chuỗi giữa a và d, và 1 đến 7
+X|Z -> tìm X hoặc Z
+XZ -> tìm X theo sau là Z
+$ -> kiếm tra kết thúc dòng
+\d -> số bất kỳ [0-9]
+\D -> Ký tự ko phải là số [^0-9]
+\s -> Ký tự khoảng trắng
+\S -> Ký tự không phải là khoảng trắng
+\w -> Ký tự chữ (a->z, A->Z, 0->9, _)
+\W -> Ký tự không phải là chữ
+\b -> Ký tự thuộc a-z hoặc A-Z, hoặc 0-9 hoặc _
+* -> Xuất hiện 0 hoặc nhiều lần {0,}
++ -> Xuất hiện 1 hoặc nhiều lần {1,}
+? -> Xuất hiện 0 hoặc 1 lần {0,1}
+{X} -> Xuất hiện X lần
+{X,Y} -> Xuất hiện từ X đến Y lần
+{X,} -> Xuất hiện X lần hoặc nhiều hơn
+*? -> tìm kiếm khớp nhỏ nhất
 */
 
-// VD: Ma hoa chuoi "   javascript is cool  " 'a' bang 4, 'e' bang 3, 'i' bang 1, 'o' bang 0, and 's' bang 5.
+// VD: Mã hoá chuỗi "   javascript is cool  " 'a' = 4, 'e' = 3, 'i' = 1, 'o' = 0, and 's' = 5.
 let encode = (str) => {
   str = str.trim(); // "javascript is cool"
   let code = {

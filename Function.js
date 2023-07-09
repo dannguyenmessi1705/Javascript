@@ -36,7 +36,7 @@ function ex3() {
 }
 ex3();
 
-// Tra ve nhieu doi so, them ... vao truoc tham so truyen vao ham
+// Để truyền nhiều đối số, ta thêm '...' vào trước tham số truyền vào
 function ex4(...arguments) {
   let sum = 0;
   for (let param of arguments) {

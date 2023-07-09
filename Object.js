@@ -1,25 +1,25 @@
 function ex1() {
-  // Cach khai bao Object thu 1
+  // Cách khai báo Object thứ 1
   // object = [{ob1},{ob2}]
   let date = new Date();
   let year = date.getFullYear();
-  // them 1 bien tu ben ngoai
+  // thêm 1 biến từ bên ngoài
   let emailObject = "email";
   let students = {
     name: "Dan", // Properties
     dob: 2002,
     address: "Hung Yen",
-    [emailObject]: "danprohy@gmail.com", // Bien truyen vao phai de tong dau ngoac vuong => email: "danprohy@gmail.com"
+    [emailObject]: "danprohy@gmail.com", //Biến truyền vào để trong cặp dấu ngoặc vuông => email: "danprohy@gmail.com"
     getAge: function () {
       // Method()
       return year - this.dob;
     },
   };
-  // Xoa key
+  // Xoá key
   delete students.email;
   console.log(students);
   console.log(students.getAge());
-  // Cach khai bao Object thu 2, tao Object Constructor
+  // Cách khai báo Object thứ 2, tạo Object Constructor
   function Obj(brand, year) {
     this.brand = brand;
     this.year = year;
@@ -33,7 +33,7 @@ function ex1() {
 }
 ex1();
 
-// Object.assign(), copy thuoc tinh va gia tri den object khac, se bi ghi de neu co trung thuoc tinh
+// Object.assign(), copy thuộc tính và giá trị đến 1 biến khác, sẽ bị ghi đè nếu trùng thuộc tính
 function ex2() {
   let target = {
     a: "1",
@@ -52,7 +52,7 @@ function ex2() {
 }
 ex2();
 
-// Object.create() => tao 1 object moi dua tren thuoc tinh, phuong thuc cua phuong thuc cu
+// Object.create() => tạo 1 Object mới dựa trên thuộc tính, phương thức của Object cũ
 function ex3(name, age) {
   let person = {
     name: "",
@@ -68,7 +68,7 @@ function ex3(name, age) {
 }
 ex3("Dan", 22);
 
-// Object.entries - tra ve mang chua cac mang thuoc tinh (key) va mang gia tri (value)
+// Object.entries -> Trả về mảng chứa các thuộc tính (key) và giá trị (value)
 function ex4() {
   let num = {
     a: 0,
@@ -81,8 +81,8 @@ function ex4() {
 }
 ex4();
 
-// Object.keys() - tra ve thuoc tinh (keys) cua Object
-// Object.values() - tra ve gia tri (values) cua key trong Object
+// Object.keys() -> trả về thuộc tính (keys) của Object
+// Object.values() -> trả về giá trị (values) của keys trong Object
 function ex5() {
   let fruit = {
     type: "Banana",
@@ -96,7 +96,7 @@ function ex5() {
 }
 ex5();
 
-// Them thuoc tinh, phuong thuc tu ben ngoai bang prototype, Ap dung cho Object, String, Array
+// Thêm thuộc tính, phương thức từ bên ngoài bằng prototype, Áp dụng cho Object, String, Array
 const ex6 = () => {
   let day = new Date();
   const User = function (name, salary, dob) {
@@ -106,7 +106,7 @@ const ex6 = () => {
   };
   const admin = new User("Admin", 13000, 2000);
   console.log(admin);
-  // Them phuong thuc, thuoc tinh bang prototype
+  // Thêm phương thức, thuộc tính bằng prototype
   User.prototype.getAge = function () {
     return day.getFullYear() - this.dob;
   };
