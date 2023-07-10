@@ -1,9 +1,9 @@
 /*
 HTML DOM = Document Object Model
 *** Gồm 3 thành phần
-+) 1. Element (thẻ tag)
-+) 2. Attribute (Thuộc tính trong các thẻ (src, title, id, class...))
-+) 3. Text (nằm Ở giữa thẻ mở đóng tag)
++) 1. Element Node (thẻ tag) : nodetype = 1
++) 2. Attribute (Thuộc tính trong các thẻ (src, title, id, class...)) : nodetype = 2
++) 3. Text Node (nằm Ở giữa thẻ mở đóng tag) : nodetype = 3
 
 -> JS có thể thay đổi tất cả các element trong HTML
 -> JS có thể thay đổi tất cả các attribute trong HTML
@@ -84,20 +84,112 @@ ModAttribute();
 
 // innerText -> Trả về text (nhìn thấy gì trên web thì trả về đúng như vậy)
 const Inner = () => {
-  const Text = document.getElementsByClassName("textNode")[0]
-  console.log(Text.innerText)
+  const Text = document.getElementsByClassName("textNode")[0];
+  console.log(Text.innerText);
   // Sửa Text (Lưu ý mặc dù chỉ in ra những gì ta thấy ở web tuy nhiên khi sửa nó sẽ sửa hết cả giá trị ẩn trong DOM)
-  // Text.innerText = 
+  // Text.innerText =
   // `<i>
   // Text
   // </i>`
-}
-Inner()
+};
+Inner();
 // textContent -> Trả về textNode (Khác với innerText, textContent cứ ở bên trong thẻ tag thì in ra hết)
 const TextContent = () => {
-  const Text = document.querySelector('.textNode')
-  console.log(Text.textContent)
+  const Text = document.querySelector(".textNode");
+  console.log(Text.textContent);
   // Sửa Text (Lưu ý mặc dù chỉ in ra những gì ta thấy ở web tuy nhiên khi sửa nó sẽ sửa hết cả giá trị ẩn trong DOM)
   // Text.textContent = '<i>Text</i>'
+};
+TextContent();
+
+// *** Thêm element (thẻ tag), Attribute, Textnode, vào 1 element: Dùng innerHTML, outterHTML
+// innerHTML -> thêm các giấ trị vào trong element được gọi tới (trong thẻ tag)
+const InnerHTML = () => {
+  const Element = document.querySelector(".inner");
+  // Thêm 1 thẻ + attribute + textNode
+  Element.innerHTML = `<h1 class="msg">Đây là dòng thêm bởi innerHTML</h1>`;
+  console.log(Element.innerHTML);
+};
+InnerHTML();
+// outterHMTL -> thêm các giá trị (chèn) vào đúng element được gọi tới (thay thế luôn cả thẻ tag)
+const OutterHTML = () => {
+  const Element = document.querySelector(".inner");
+  Element.outerHTML = `<div style="color: red">Đây là dòng thêm bởi outterHTML</div>`;
+  // Mặc dù nó sẽ thay thế toàn bộ element được gọi tới, tuy nhiên gía trị trả về nó vẫn còn dữ liệu cũ của tk inner vừa gọi ở trên
+  // Nó chỉ làm thay đổi trong DOM
+  console.log(Element.outerHTML);
+};
+OutterHTML();
+
+// VD: Thêm 1 array course vào thẻ ul trong HTML
+const courses = ["Java", "Python", "C++"];
+const ex = (courses) => {
+  const Element = document.querySelector(".course");
+  let list = courses.map((course) => {
+    let arr = `<li>${course}</div>`;
+    return arr;
+  });
+  list = list.join("\n");
+  Element.innerHTML = list;
+  console.log(list);
+};
+ex(courses);
+
+// *** DOM style, sử dụng thuộc tính 'style' trỏ đến các thuộc tính trong CSS để chỉnh element (inline block)
+// các thuộc tính được trỏ đến tuân theo kiểu camel Case
+const DomStyle = () => {
+  const Element = document.querySelector(".rectangle");
+  // Trường hopej thêm 1 style
+  Element.style.backgroundColor = "red";
+  // Trường hợp thêm nhiều style
+  let styles = {
+    width: "500px",
+    height: "30px",
+  };
+  Object.assign(Element.style, styles);
+  console.log(Element);
+};
+DomStyle();
+
+// *** Classlist -> Làm việc với thuộc tính class của element trong HTML.Nó có các thuộc tính sau
+// length -> trả về số lượng phần tử trong class. VD class = "my me" => 2, và nó làm việc gần giống với Array
+// value ->  Trả về giá trị cua class dưới dạng string
+// add(str, ...) -> Thêm 1 chuỗi str vào class
+// remove(str, ...) -> Xoá 1 chuỗi ra khỏi class
+// replace(old, new) -> Thay thế chuỗi old bằng new trong class
+// contains(str, ..) -> Kiểm tra xem có chuỗi str trong class hay không
+// tongle(str, ...) -> Hoạt động như 1 công tắc, nó check xem trong class có str ko, nếu có -> nó sẽ remove chuỗi str đi, ngược lại nếu ko có -> nó sẽ add str vào
+const ClassList = () => {
+  const Element = document.getElementById('classlist')
+  // Tìm độ dài và in ra từng giá trị của class
+  console.log("length class", Element.classList.length)
+  for(let i=0; i<Element.classList.length; i++){
+    console.log(`Giá trị ${i+1}:`, Element.classList[i])
+  }
+  // In ra chuỗi giá trị
+  console.log("class có chuỗi ban đầu là:", Element.classList.value)
+
+  // Thêm chuỗi ita đã được css vào trong class, ngoài ra có thêm 1 lúc nhiều str
+  Element.classList.add('ita', 'optional')
+
+  // Kiểm tra có chuỗi trong class hay không
+  console.log(Element.classList.contains("optional"))
+
+  // Xoá chuỗi trong class
+  Element.classList.remove('optional', 'head0')
+
+  // Tự động thêm xoá chuỗi trong class bằng toggle
+  setInterval(() => {
+    Element.classList.toggle('head2')
+  }, 1000)
 }
-TextContent()
+ClassList()
+
+// VD: Chuyển hết thẻ li về màu blue
+const Blue = () =>{
+  const Element = document.querySelectorAll('li')
+  Element.forEach((e) => {
+    e.classList.add('blue')
+  })
+}
+Blue()

@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .head2{
+            color: red;
+        }
+        .ita{
+            font-style: italic;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="heading">HTML DOM</h1>
+    <h1 id="heading" class="head1" contenteditable="true">HTML DOM</h1>
+    <h1 id="classlist" class="ita head0 head1">Làm việc với thuộc tính classList</h1>
     <h2 class="content">Lấy ví dụ cho get class</h2>
     <h2 class="content">Class có tên là "content"
         <p class="text">Đây là 1 đoạn văn mẫu</p>
@@ -28,6 +40,9 @@
             <li class="list">Noodle</li>
         </ol>
     </div>
+    <div class="rectangle">
+        
+    </div>
     <div class="textNode">
         <span>Text</span>
         <span style="display: none">Content</span>
@@ -36,6 +51,14 @@
                 color: red;
             }
         </style>
+    </div>
+    <div class="inner">
+        <h1 class="msg">Đây là dòng thêm bởi innerHTML</h1>
+    </div>
+
+    <div class="learning">
+        Các khoá học lập trình
+        <ul class="course"></ul>
     </div>
 
     <script src="./HTML_DOM.js"></script>
