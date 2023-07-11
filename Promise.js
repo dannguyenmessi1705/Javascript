@@ -275,9 +275,10 @@ const ChatMessage = () => {
       data.messages.forEach((message) => {
         //Duyệt qua tất cả các tin nhắn
         let res = data.users.find((user) => {
-          // Tìm user chat các đoạn tin của chính mình
-          return message.user_id === user.id;
+          // Tìm user hiện đang là sở hữu đoạn chat 
+          return user.id === message.user_id;
         });
+        console.log(res)
         output += `<li>${res.name}: ${message.msg}</li>`;
       });
       // Thêm vào DOM
