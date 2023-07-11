@@ -160,36 +160,152 @@ DomStyle();
 // contains(str, ..) -> Kiểm tra xem có chuỗi str trong class hay không
 // tongle(str, ...) -> Hoạt động như 1 công tắc, nó check xem trong class có str ko, nếu có -> nó sẽ remove chuỗi str đi, ngược lại nếu ko có -> nó sẽ add str vào
 const ClassList = () => {
-  const Element = document.getElementById('classlist')
+  const Element = document.getElementById("classlist");
   // Tìm độ dài và in ra từng giá trị của class
-  console.log("length class", Element.classList.length)
-  for(let i=0; i<Element.classList.length; i++){
-    console.log(`Giá trị ${i+1}:`, Element.classList[i])
+  console.log("length class", Element.classList.length);
+  for (let i = 0; i < Element.classList.length; i++) {
+    console.log(`Giá trị ${i + 1}:`, Element.classList[i]);
   }
   // In ra chuỗi giá trị
-  console.log("class có chuỗi ban đầu là:", Element.classList.value)
+  console.log("class có chuỗi ban đầu là:", Element.classList.value);
 
   // Thêm chuỗi ita đã được css vào trong class, ngoài ra có thêm 1 lúc nhiều str
-  Element.classList.add('ita', 'optional')
+  Element.classList.add("ita", "optional");
 
   // Kiểm tra có chuỗi trong class hay không
-  console.log(Element.classList.contains("optional"))
+  console.log(Element.classList.contains("optional"));
 
   // Xoá chuỗi trong class
-  Element.classList.remove('optional', 'head0')
+  Element.classList.remove("optional", "head0");
 
   // Tự động thêm xoá chuỗi trong class bằng toggle
   setInterval(() => {
-    Element.classList.toggle('head2')
-  }, 1000)
-}
-ClassList()
+    Element.classList.toggle("head2");
+  }, 1000);
+};
+ClassList();
 
 // VD: Chuyển hết thẻ li về màu blue
-const Blue = () =>{
-  const Element = document.querySelectorAll('li')
+const Blue = () => {
+  const Element = document.querySelectorAll("li");
   Element.forEach((e) => {
-    e.classList.add('blue')
-  })
-}
-Blue()
+    e.classList.add("blue");
+  });
+};
+Blue();
+
+// *** DOM Event -> Lắng nghe sự kiện của người dùng
+// Có 2 cách thêm event vào code, Assign event for element node (thêm sự kiện vào biến element đc gọi (js thuần)) Attribute event (thêm thuộc tính vào ngay trong thẻ element (html))
+// Cú pháp(element node) Element.event = function(e){ exe code(e.target; ELement.style,..) }
+// Cú pháp(attribute event) event="code"
+// (event: onclick, onchange,...)
+const Event = () => {
+  const Elements = document.querySelectorAll(".text");
+  // thay đổi màu mỗi khi ta nhấn vào tất cả thẻ có class="text"
+  Elements.forEach((element) => {
+    element.onclick = (event) => {
+      console.log("Element đang được click", event.target);
+      const styles = {
+        color: "blue",
+        fontSize: "40px",
+      };
+      Object.assign(element.style, styles);
+    };
+  });
+  // onchange (viết xong click ra chỗ khác mới lưu), oninput (viết chữ nào lưu chữ đó)
+  const ChangeInput = document.querySelector('input[type="text"]');
+  ChangeInput.oninput = (event) => {
+    console.log(event.target.value); // In ra giá trị của input khi nhập từ bàn phím
+  };
+  const ChangeCheckBox = document.querySelector('input[type="checkbox"]');
+  ChangeCheckBox.onchange = (event) => {
+    console.log(event.target.checked); // Check xem box đã được tích hay chưa
+  };
+  const ChangeOptional = document.querySelector("#select");
+  ChangeOptional.onchange = (event) => {
+    console.log(event.target.value); // In ra value của option đc chọn
+  };
+  // onkeyup (Nhấn nhả phím lên thì sự kiện xảy ra), onekeydown (Nhấn phím xuóng thì sự kiện mới xảy ra), onkeypress (Nhấn giữ phím thì sự kiện mới xảy ra)
+  document.onkeyup = (event) => {
+    let key_name = event.which; // lấy giá trị số đại diện cho 1 phím trên keyboard
+    switch (key_name) {
+      case 37:
+        console.log("Bạn đang ấn phím Arrow Left");
+        break;
+      case 38:
+        console.log("Bạn đang ấn phím Arrow Up");
+        break;
+      case 39:
+        console.log("Bạn đang ấn phím Arrow Right");
+        break;
+      case 40:
+        console.log("Bạn đang ấn phím Arrow Down");
+        break;
+      case 13:
+        console.log("Bạn đang ấn phím Enter");
+        break;
+      case 27:
+        console.log("Bạn đang ấn phím ESC");
+        break;
+      default:
+        console.log("Bạn dâng nhấn 1 phím khác", key_name);
+    }
+  };
+};
+Event();
+
+// *** preventDefault() -> Ngăn chặn hành vi mặc định của 1 đối tượng
+// VD: có 2 đường link khác nhau dẫn đến 2 trang web "https://google.com.vn" và "https://facebook.com"
+// Bình thường khi nhấn vào thẻ a chứa href của 2 web trên, nó sẽ dẫn ta tới web đó, nhưng bây giờ dùng preventDefault() để ngăn chặn hoạt động mặc định của thẻ a khi chạy đến web của facebook
+const Prevent = () => {
+  const Elements = document.querySelectorAll("a.links");
+  Elements.forEach((element) => {
+    element.onclick = (event) => {
+      let link = event.target.href; // In ra tên miền
+      console.log(link);
+      if (!link.startsWith("https://google.com.vn")) {
+        // Nếu tên miền bắt không bắt đầu bằng chuỗi ký tự kia -> bỏ hành vi mặc định
+        event.preventDefault(); // Bỏ hành vi mặc định của thẻ a, giờ ta click vào link Facebook, nó sẽ ko đưa ta đến trang facebook nữa
+      }
+    };
+  });
+};
+Prevent();
+
+// *** stopPropagation() -> Ngăn chặn sự kiện lan truyền (nổi bọt): Nghĩa là phần tử element con chỉ thực hiện các
+// sự kiện bên trong của nó, chứ ko nhảy ra ngoài thực hiện các sự kiện của các phần tử element cha
+
+const Stop = () => {
+  // Thêm sự kiện cho element cha
+  const Par = document.querySelector(".Propagation");
+  Par.onclick = (event) => {
+    console.log(event.target); // Lúc này, do sự kiện nổi bọt mặc định bật, nên ta click vào element con cũng có thể
+    Par.style.color = "blue"; // làm cho element cha thay đổi, tuy nhiên ta chỉ muốn có hiệu lực khi click vào element cha
+  };
+  // Thêm sự kiện cho element con + ngăn chặn nổi bọt
+  const Chi = document.querySelector(".Propagation2");
+  Chi.onclick = (event) => {
+    event.stopPropagation(); // ngăn chặn nổi bọt (nếu không nó sẽ thực hiện sự kiện của các element cha)
+    console.log(event.target);
+    Chi.style.color = "red";
+  };
+};
+Stop();
+
+// *** Event Listener: Tương tự như DOM Event, tuy nhiên nếu muốn xử lý nhiều câu lệnh khi có sự kiện, nên dùng Event Listener và event của nó không có tiền tố on
+// addEventListener('event', callback) -> Thêm sự kiện thực thi trong hàm callback
+// removeEventListener('event', callback) -> Xoá sự kiện thực thi hàm callback (giống với DOM Style khi trả về 1 callback rỗng)
+const Listen = () => {
+  const Element = document.querySelector("button");
+  const dowork = (event) => {
+    console.log(event.target);
+    Element.innerHTML = `<h2>${Math.random()}</h2>`;
+  };
+  // Thêm sự kiện
+  Element.addEventListener("click", dowork);
+  // Xoá sự kiện sau 5s
+  setTimeout(() => {
+    Element.removeEventListener("click", dowork);
+  }, 5000);
+};
+Listen();
