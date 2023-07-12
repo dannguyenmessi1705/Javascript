@@ -1,33 +1,29 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Lionel Messi"
-    },
+  "post": [
     {
       "id": 2,
-      "name": "Cristiano Ronaldo"
-    },
-    {
-      "name": "Neymar Junior",
-      "id": 3
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "cmt": "I has 8 Balon D'or"
-    },
-    {
-      "user_id": 2,
-      "cmt": "Factos!!! Sunday the king plays",
-      "id": 2
+      "page": "Thông tin Chính phủ",
+      "content": "Đẩy mạnh làm giàu thông tin, tích hợp các tiện ích thiết yếu lên ứng dụng VneID bằng cách cho phép người dân được cập nhật dữ liệu cá nhân lên hệ thống và xác thực (trình độ học vấn, quan hệ họ hàng; giấy phép lái xe, tài khoản ngân hàng, điện nước, viễn thông, công chức, viên chức, Đảng viên….). Sớm nghiên cứu, thí điểm tại một số đô thị loại 3 để triển khai đồng bộ ứng dụng VneID từ làm giàu dữ liệu và triển khai ứng dụng quản lý xã hội và tiện ích cho người dân"
     },
     {
       "id": 3,
-      "user_id": 3,
-      "cmt": "The god let me play football"
+      "page": "Beatvn",
+      "content": "Cộng đồng mạng truyền tay nhau những tấm ảnh được cho là giao dịch của PCK chơi tài xỉu có ngày thua tới 28 tỷ... Sao kê bên dưới anh em điền thêm 3 số 0 nữa 😬"
+    },
+    {
+      "id": 4,
+      "page": "Học lập trình web (F8 - Fullstack.edu.vn)",
+      "content": "Mình đang code một trang web bán hàng và cần code chức năng nạp tiền từ tài khoản ngân hàng vào tài khoản trên trang web để mua hàng không biết nên làm tn ạ, hoặc mn có thể đề xuất video nào đó dạy phần này ko ạ . Mình cảm ơn"
+    },
+    {
+      "page": "Khẩu Nghiệp",
+      "content": "Concert \"Born Pink\" ở Hà Nội sẽ là sân khấu cuối cùng có đủ 4 cô gái 🙁",
+      "id": 5
+    },
+    {
+      "page": "BLV Anh Quân",
+      "content": "Noam Emeran là người ghi bàn cho Man Utd sau khi các anh lớn lần lượt đã ra ngoài trong hiệp 2.",
+      "id": 6
     }
   ]
 }
