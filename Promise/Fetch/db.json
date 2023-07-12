@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Lionel Messi"
+        },
+        {
+            "id": 2,
+            "name": "Cristiano Ronaldo"
+        },
+        {
+            "id": 3,
+            "name": "Neymar da Silva Santos Junior"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "cmt": "I has 8 Balon D'or"
+        },
+        {
+            "id": 2,
+            "user_id": 2,
+            "cmt": "Practice makes perfect"
+        },
+        {
+            "id": 3,
+            "user_id": 3,
+            "cmt": "The god let me play football"
+        }
+    ]
+}
