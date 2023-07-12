@@ -24,3 +24,4 @@ const JSON_WEB = () => {
 JSON_WEB();
 
 // Để thêm, sửa, xoá dữ liệu ta dùng POSTMAN truyền URL/id
+// Hoặc ta cài extensions REST Client về rồi tạo file .rest
