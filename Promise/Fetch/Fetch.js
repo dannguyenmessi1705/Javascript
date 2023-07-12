@@ -1,5 +1,5 @@
 // *** fecth(URL API) -> Dùng để lấy dữ liệu từ API trả về
-// fetch là hàm hoạt động như Promise, nó sẽ trả về 1 object dưới dạng JSON
+// fetch là hàm hoạt động như Promise (bất đồng bộ), nó sẽ trả về 1 object dưới dạng JSON
 // Để trả về kiểu Javascript ta gọi phương thức json() (response.json() = JSON.parse(data)), nó sẽ trả về 1 promise và tiếp tục trả về 1 hàm có chứa dữ liệu để ta xử lý dữ liệu đó
 // URL API lấy ví dụ từ trang web jsonplaceholder "https://jsonplaceholder.typicode.com/posts"
 
