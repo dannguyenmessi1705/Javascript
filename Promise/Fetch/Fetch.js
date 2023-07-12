@@ -18,7 +18,7 @@ const FetchGet = () => {
 };
 FetchGet();
 
-// *** POST METHOD
+// *** POST, PUT, DELETE METHOD
 const FetchPost = () => {
   fetch(URL, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.

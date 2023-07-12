@@ -3,7 +3,7 @@
  R: Read - Đọc dữ liệu từ API --- GET
  U: Update - Cập nhật dữ liệu --- PUT/PATCH
  D: Delete - Xoá dữ liệu --- DELETE
- cài json-server trên github
+ cài json-server trên github, tạo file db.json và npm start trước khi thao tác code
 */
 
 // Sau khi chạy local host ta được các API
@@ -15,7 +15,7 @@ const getPost = (callback) => {
     .then((resonse) => resonse.json())
     .then(callback); // trả về 1 hàm chứa dữ liệu từ server để sau này xử lý
 };
-// *** POST content
+// *** CREATE POST
 const createPost = (data, callback) => {
   let option = {
     method: "POST",
@@ -43,7 +43,7 @@ const handleSubmit = () => {
   };
 };
 
-// *** DELETE Post
+// *** DELETE POST
 const handleDelete = (id) => {
   let option = {
     method: "DELETE",
@@ -59,7 +59,7 @@ const handleDelete = (id) => {
     }); // Trả về hàm thực hiện chức năng, ta định nghĩa cho nó thành xoá
 };
 
-// *** UPDATE Post
+// *** UPDATE POST
 const updatePost = (id, data, callback) => {
   let option = {
     method: "PUT",
