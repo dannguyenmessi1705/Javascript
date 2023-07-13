@@ -105,11 +105,12 @@ const Render = (posts) => {
       <h2 id="page-${post.id}">${post.page}</h2>
       <p id="content-${post.id}">${post.content}</p>
       <div stlye="display:inline-block">
-        <button id="Delete" onclick="handleDelete(${post.id})">Delete</button>
+        <button id="Delete" onclick="handleDelete(${post.id})">Delete</button> 
         <button id="Edit" onclick="handleUpdate(${post.id})">Edit</button>
       </div>
     </div>
     `;
+    // Ta tư tạo các id riêng, nút Delete, Edit cho mỗi đối tượng
   });
   Element.innerHTML = html;
 };
