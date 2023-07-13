@@ -32,6 +32,7 @@ if (typeof obj.print === "function") {
 } else console.log("Không có function print");
 
 // *** VD dùng Option Chaining (?.) nếu ta được trả về 1 dạng dữ liệu object mà ta không chắc nó có các key bên trong
+// Thay vì cú pháp dài dòng như trên, ta chỉ cần dùng ?. sau mỗi 1 thuộc tính để kiểm tra nó có tồn tại thuộc tính đó không
 // name5
 if (obj?.name1?.name2?.name3?.name4?.name5) {
   console.log(obj.name1.name2.name3.name4.name5);
