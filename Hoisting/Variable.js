@@ -1,7 +1,7 @@
 /*
 Ngoài từ khoá khai báo biến var (trong ES5) thì trong ES6 ta có thêm 2 từ khoá let và const
 */
-// *** var -> biến khai báo là biến global (kể cả khi khia báo trong 1 block code, nó sẽ tự chui ra ngoài làm biến global),
+// *** var -> biến khai báo là biến global (kể cả khi khia báo trong 1 block code, nó sẽ tự chui ra ngoài làm biến global (trừ khi định nghĩa trong 1 function )),
 // trong khi let, const (hằng, không thể gán lại giá trị khác) là biến local, nó chỉ tốn tại bên trong block code
 // Nếu cả bên trong block và ngoài đều có biến trùng tên, thì var, let, const nó sẽ lấy biến ở trong block gần nó nhất
 const ex1 = () => {
