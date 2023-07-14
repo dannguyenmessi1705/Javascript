@@ -1,5 +1,7 @@
 /*
 - Option Chaning (?.) -> Là phương pháp kiểm tra xem Object có tồn tại một key nào đó hay không 
+-- Toán tử (??) -> Kiểm tra biến trước nó có phải là null hay undefined không, nếu có thì trả về 1 giá trị đằng sau nó
+// VD a ?? [] (Nếu a = null => a = [])
 */
 
 // VD in name4, name5 và hàm print(), write()
