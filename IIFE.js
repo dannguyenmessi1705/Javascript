@@ -1,7 +1,7 @@
 /*
 - IIFE -> Immediately Invoked Funcion Expression (Gọi hàm  ngay lập tức)
-- Cách để tạo IIFE: Truyền 1 Expression Function hay Arrow function (không cần tên hàm) vào cặp dấu () và theo sau nó là 1 cặp () nữa để hàm được gọi thực thi ngay lập tức
-- Để ngăn cách IIFE với các câu lệnh khác, ta phải thêm ";" vào đầu IIFE hoặc vào cuối câu lệnh ở 
+- Cách để tạo IIFE: Truyền 1 Expression Function hay Arrow function (không cần tên hàm) vào cặp dấu () (hoặc thêm toán tử ! vào đầu) và theo sau nó là 1 cặp () nữa để hàm được gọi thực thi ngay lập tức
+- Để ngăn cách IIFE với các câu lệnh khác, ta phải thêm ";" vào đầu IIFE hoặc vào cuối câu lệnh ở trước
 - IIFE là 1 hàm private, khi ta định nghĩa IIFE với 1 tên hàm nào đó, nó chỉ được gọi bên trong đúng blokb IIFE (mục đích dùng đệ quy), ra khỏi khối block đó nó ko còn tồn tại
 - Sử dụng IIFE trong trường hợp ta có 1 project quá lớn, tránh trường hợp đặt quá nhiều biến gây ra trùng lặp
 -> nên việc đặt tên biến trong khối block IIFE (private) nó sẽ tránh được sự trùng lặp

@@ -15,17 +15,17 @@ function creat() {
 }
 // Định nghĩa
 const in1 = creat(); // Lúc này function creat nó sẽ được gán cho in1
-// Khi bắt đầu chạy ic1(), nó sẽ tạo ra 1 phạm vi block code của hàm, các biến sẽ được tạo ra và lưu vào bộ nhớ
+// Khi bắt đầu chạy ic1(), nó sẽ tạo ra 1 phạm vi block code của hàm, các biến sẽ được tạo ra và lưu vào bộ nhớ (bên trong in1)
 // count = 0
-console.log(in1()); // ( in1() gọi hàm con increase == creat()() )
+console.log(in1()); // ( in1() gọi hàm con increase == creat()() ) Tuy nhiên nếu dùng creat()() thì các biến tạo ra sẽ bị reset sau mỗi làn gọi, vì nó không được lưu vào biến nào cả
 // Thực thi code bên trong hàm và trả về 1 hàm increase, hàm increase tiếp tục trả về ++count
 // count = 1
-console.log(in1()); // ( in1() gọi hàm con increase == creat()() )
+console.log(in1()); // ( in1() gọi hàm con increase == creat()() ) Tuy nhiên nếu dùng creat()() thì các biến tạo ra sẽ bị reset sau mỗi làn gọi, vì nó không được lưu vào biến nào cả
 // Khi tiếp tục gọi, vì vẫn là biến function đó nên nó sẽ tiếp tục truy cập vào phạm vi cũ đã có trước đó
 // count = 2
-const in2 = creat(); // Khi tạo ra 1 biến mới lưu function creat, thì nó sẽ tạo ra 1 phạm vi block code mới của riêng biến đó
-console.log(in2()); // ( in2() gọi hàm con increase == creat()() ) count = 1
-// 1
+const in2 = creat(); // Khi tạo ra 1 biến mới lưu function creat, thì nó sẽ tạo ra 1 phạm vi block code mới của riêng biến đó, các biến sẽ được tạo ra và lưu vào bộ nhớ (bên trong in2)
+console.log(in2()); // ( in2() gọi hàm con increase == creat()() ) Tuy nhiên nếu dùng creat()() thì các biến tạo ra sẽ bị reset sau mỗi làn gọi, vì nó không được lưu vào biến nào cả
+// count = 1
 
 // *** Ứng dụng Closure để làm với localStorage (thê hiện tính Private)
 function createLocalStorage(key) {
