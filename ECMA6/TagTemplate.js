@@ -1,5 +1,6 @@
 /*
 - Tag Template kết hợp với Template String để bóc tách từng phần tử của 1 chuỗi ra
+-- Cú pháp function`value,...` != function(value,...)
 */
 // VD: Ta muốn highglight chữ "Messi", "vô địch" trong chuỗi "Không nghi ngờ gì nữa, Messi là nhà vô địch World Cup 2022"
 // => Phải đưa "Messi", "vô địch" thành 1 biến nội suy và đưa vào thẻ tag css highlight
