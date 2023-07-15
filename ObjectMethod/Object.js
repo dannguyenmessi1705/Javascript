@@ -113,3 +113,23 @@ const ex6 = () => {
   console.log(admin.getAge());
 };
 ex6();
+
+// Object.freeze() -> Đóng băng Object, không thể thay đổi giá trị của Object
+// Object.seal() -> Khóa Object, không thể thêm, xoá thuộc tính của Object
+// Object.isFrozen() -> Kiểm tra Object có bị đóng băng hay không
+// Object.isSealed() -> Kiểm tra Object có bị khóa hay không
+function ex7() {
+  const obj = {
+    name: "Đan",
+    age: 22,
+  };
+  Object.freeze(obj);
+  obj.name = "Đan Pro";
+  console.log(obj); // { name: 'Đan', age: 22 }, do không thể thay đổi giá trị của Object
+  console.log(Object.isFrozen(obj)); // true
+  Object.seal(obj);
+  obj.address = "Hưng Yên";
+  console.log(obj); // { name: 'Đan', age: 22 }, do không thể thêm thuộc tính vào Object
+  console.log(Object.isSealed(obj)); // true
+}
+ex7();
