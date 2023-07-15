@@ -1,7 +1,7 @@
 /*
 -- bind(): là 1 phương thức của Function, nó sẽ tạo ra 1 hàm mới, có tham số là this và các tham số truyền vào
 -- Cú pháp: function.bind(obj, arg1, arg2, ...)
--- bìnd() sẽ ràng buộc this của hàm mới tạo ra với đối tượng obj, và các tham số truyền vào
+-- bind sẽ trả về 1 hàm mới (và không tự động gọi hàm) phải thêm câu lệnh gọi hàm ở dưới, có tham số là this và các tham số truyền vào
 */
 
 // *** VD dùng bind()
