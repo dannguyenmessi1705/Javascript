@@ -49,9 +49,9 @@ ex2(9, 2, 4, 1);
 // Toan tu && - Trong mệnh đề điều kiện, nếu nó có 1 trong 6 kiểu dữ liệu trên thì kq -> false, ngược lại -> gia tri sau cùng
 // Toan tu || - Trong mệnh đề điều kiện, nó sẽ ưu tiên kq lấy giá trị của mệnh đề đầu tiên, -> false nếu tất cả mệnh đề thuộc 6 kiểu dữ liệu trên
 const ex3 = () => {
-  let and = "A" && "B" && "C";
+  let and = "A" && null && 0 && "C";
   console.log(and);
-  let or = "A" || "B" || "C";
+  let or = null || "B" || "C";
   console.log(or);
 };
 ex3();
